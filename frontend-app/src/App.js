@@ -1,30 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
+import BoardPin from "./Component/BoardPin/BoardPin";
+import PinPage from "./Component/Pin/PinPage";
+import NavBar from "./Component/NavBar/NavBar.js";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from 'react-router-dom';
 
-function App() {
+
+const App = () => {
+    const [pins, setPins] = useState();
+    const apiHostName = 'http://localhost:5000';
+
+    useEffect(() => {
+        fetch(`${apiHostName}/pins`)
+            .then(response => response.json())
+            .then(pinsFromResponse => {
+                 setPins(pinsFromResponse);
+            });
+    }, []);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button> Meaw! Meaw! I'm a Cat </button>
-        <button> Woof! Woof! I'm a Dog </button>
-        <button> Muuuu!! Muuuu!! I'm a Cow </button>
-        <button> Dããã!! I'm Homer! </button>
-      </header>
-    </div>
-  );
+    <Router>
+        <div className="App">
+            <div className="content">
+              <NavBar />
+              <Switch>
+                  {pins && <Route path="/pin/id=:params" render={props => <PinPage data={pins} {...props} />} />}
+                  {pins && <Route path="/" render={props => <BoardPin data={pins} {...props} />} />}
+              </Switch>
+            </div>
+        </div>
+    </Router>
+  )
+
 }
 
 export default App;

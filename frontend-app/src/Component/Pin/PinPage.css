@@ -1,0 +1,73 @@
+.Pin-Content {
+  text-align: center;
+  margin: 50px auto 50px auto;
+  box-shadow: 10px 10px 10px #dddbdb;
+  max-width: 76%;
+}
+
+.Pin-Board {
+  display: flex;
+}
+
+.Pin-Image {
+  width: 500px;
+  height: 100%;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  margin-left: 30px;
+}
+
+.Icons {
+  width: 25px;
+  margin: 25px;
+}
+
+.Icons-sec {
+  width: 20px;
+  margin: 20px 8px;
+}
+
+.ParaTi {
+  margin-top: 10px;
+}
+
+.Menu {
+  text-align: left;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.Menu-Icons {
+  display: flex;
+  flex-direction: row;
+}
+
+.Menu-Icons-1 {
+  margin-right: 65px;
+  margin-left: 20px
+}
+
+.Menu-Icons-2 {
+  margin-left: 100px;
+  margin-top: 10px;
+}
+
+.button-guardar {
+  width: 100px;
+  height: 50px;
+  background-color: #e60023;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.Menu-Description {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 600px;
+}

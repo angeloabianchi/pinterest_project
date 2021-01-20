@@ -1,0 +1,12 @@
+.board-template {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.board-image {
+    max-width: 230px;
+    max-height: auto;
+    padding: 5px 5px 5px 5px;
+    border-radius: 40px;
+    box-sizing: border-box;
+}
