@@ -11,10 +11,10 @@ const NavBar = () => {
 
     return (
       <div className="NavBar">
-        <div className="NavBarIcons"><Link to='/'><img src={pinterestIcon} className="PinterestIcon" /></Link></div>
-        <div className="NavBarIcons-Buttons-Inicio"><Link className="Link"to='/'>Inicio</Link></div>
-        <div className="NavBarIcons"><button className="Buttons-Seguiendo" href="#siguiendo">Siguiendo</button></div>
-        <div className="NavBarIcons"><input type="text" placeholder="       Buscar" className="SearchBar" /></div>
+        <div className="NavBarIcons"><Link to='/pins'><img src={pinterestIcon} className="PinterestIcon" /></Link></div>
+        <div className="NavBarIcons-Buttons-Inicio"><Link className="Link" to='/pins'>Inicio</Link></div>
+        <div className="NavBarIcons"><button className="Buttons-Siguiendo" href="#siguiendo" >Siguiendo</button></div>
+        <div className="NavBarIcons"><input type="text" placeholder="Buscar" className="SearchBar" /></div>
         <div className="NavBarIcons"><a href="#"><img className="Icon" src={bellIcon}/></a></div>
         <div className="NavBarIcons"><a href="#"><img className="Icon" src={chatIcon}/></a></div>
         <div className="NavBarIcons"><a href="#"><img className="Icon" src={userIcon}/></a></div>

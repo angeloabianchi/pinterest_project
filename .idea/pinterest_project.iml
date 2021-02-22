@@ -13,7 +13,6 @@
       <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/doctrine/lexer" />
       <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/dragonmantank/cron-expression" />
       <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/egulias/email-validator" />
-      <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/erusev/parsedown" />
       <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/facade/flare-client-php" />
       <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/facade/ignition" />
       <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/facade/ignition-contracts" />
@@ -91,6 +90,15 @@
       <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/tijsverkoyen/css-to-inline-styles" />
       <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/league/mime-type-detection" />
+      <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/league/commonmark" />
+      <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/symfony/http-client-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/symfony/error-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/asm89/stack-cors" />
+      <excludeFolder url="file://$MODULE_DIR$/backend-api/vendor/fruitcake/laravel-cors" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

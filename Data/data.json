@@ -160,5 +160,73 @@
       "description": "Planta",
       "publishedDate": "2019-05-22T11:41:23"
     }
+  ],
+  "users": [
+    {
+      "name": "Angelo",
+      "email": "Angelo@angelo.com",
+      "password": "angelo",
+      "id": 1
+    },
+    {
+      "name": "Luke",
+      "email": "Luke@luke.com",
+      "password": "luke",
+      "id": 2
+    },
+    {
+      "name": "Marta",
+      "email": "Marta@marta.com",
+      "password": "marta",
+      "id": 3
+    },
+    {
+      "name": "Aeve",
+      "email": "Aeve@aeve.com",
+      "password": "aeve",
+      "id": 4
+    },
+    {
+      "name": "Lala",
+      "email": "Lala@lala.com",
+      "password": "lala",
+      "id": 5
+    },
+    {
+      "name": "lala",
+      "email": "lala@lala",
+      "password": "lala",
+      "id": 6
+    },
+    {
+      "name": "Teste",
+      "email": "Teste@teste.com",
+      "password": "teste",
+      "id": 7
+    },
+    {
+      "name": "Lucas",
+      "email": "lucasdiogo@gmail.com",
+      "password": "lucassupersecure",
+      "id": 8
+    },
+    {
+      "name": "Gabriel",
+      "email": "Gabriel@gabriel.com",
+      "password": "gabriel",
+      "id": 9
+    },
+    {
+      "name": "Hola",
+      "email": "Hola@hola.com",
+      "password": "hola",
+      "id": 10
+    },
+    {
+      "name": "Ula ",
+      "email": "Ula@ula.com",
+      "password": "ula",
+      "id": 11
+    }
   ]
 }

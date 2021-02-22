@@ -1,9 +1,14 @@
+* {
+    text-align: center;
+}
+
 .App {
     margin-top: -1px;
     min-width: 320px;
     padding-top: 1px;
 }
 
-.content {
-
+.Content {
+    display: flex;
+    flex-direction: column;
 }

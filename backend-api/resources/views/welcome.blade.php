@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Pinturest
+                    Pinterest
                 </div>
 
                 <div class="links">
