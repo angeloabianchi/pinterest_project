@@ -29,7 +29,7 @@ const App = () => {
         <div className="App">
             <div className="Content">
               <NavBar />
-              <CreatePin />
+
 
               <Switch>
                   {pins && <Route path="/pin/id=:params" render={props => <PinPage data={pins} {...props} />} />}

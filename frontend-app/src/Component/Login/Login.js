@@ -73,11 +73,15 @@ const Login = () => {
                             onChange={e => handleChange(key, e.target.value)} />
                     ))}
                     <div className="SendCancel">
-                        <Button onClick={sendData}>Entrar</Button>
-
-                        <Link to={`/user/id=${loginUser.id}`}>lala</Link>
+                        <Button variant='contained' color='primary' size='large' onClick={sendData}>Verificar Cuenta</Button>
 
                         <Button variant="contained" color="Default" size="large" onClick={handleClickClose}>Cancelar</Button>
+                    </div>
+                    <div>
+                        <Button variant='contained' color='primary' size='large'>
+                            <Link to={`/user/id=${loginUser.id}`}>Entrar en mi cuenta</Link>
+                        </Button>
+
                     </div>
                 </form>
             </Dialog>
