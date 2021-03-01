@@ -4,14 +4,14 @@ import pinterestIcon from './pinterestIcons/pinterestIcon.png';
 import bellIcon from './pinterestIcons/bellIcon.svg';
 import chatIcon from './pinterestIcons/chatIcon.svg';
 import userIcon from './pinterestIcons/userIcon.svg';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
 const NavBar = () => {
-
+    const params = useParams();
 
     return (
       <div className="NavBar">
-        <div className="NavBarIcons"><Link to='/pins'><img src={pinterestIcon} className="PinterestIcon" /></Link></div>
+        <div className="NavBarIcons"><Link to={`/user/id=${params.userId}/boards`}><img src={pinterestIcon} className="PinterestIcon" /></Link></div>
         <div className="NavBarIcons-Buttons-Inicio"><Link className="Link" to='/pins'>Inicio</Link></div>
         <div className="NavBarIcons"><button className="Buttons-Siguiendo" href="#siguiendo" >Siguiendo</button></div>
         <div className="NavBarIcons"><input type="text" placeholder="Buscar" className="SearchBar" /></div>

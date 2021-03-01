@@ -18,6 +18,7 @@ import HomePage from "./Component/HomePage/HomePage";
 const App = () => {
     const [pins, setPins] = useState(undefined);
     const [boards, setBoards] = useState(undefined);
+    const [users, setUsers] = useState(undefined);
 
     useEffect(() => {
         Api.getPins().then(res => setPins(res));
@@ -27,18 +28,22 @@ const App = () => {
         Api.getBoards().then(res => setBoards(res));
     }, [setBoards]);
 
+    useEffect(() => {
+        Api.getUsers().then(res => setUsers(res));
+    }, [setUsers]);
+
 
   return (
       <Router>
         <div className="App">
             <div className="Content">
-              <NavBar />
+                {users && <NavBar/>}
 
               <Switch>
-                  {boards && pins && <Route path="/user/id=:userId/board/id=:boardId/pin/id=:pinId" render={props => <PinPage data={pins} {...props} />} />}
-                  {boards && pins && <Route path="/user/id=:userId/boards" render={props => <User data={boards} {...props} />} />}
-                  {boards && pins && <Route exact path="/user/id=:userId/board/id=:boardId" render={props => <BoardPin data={pins} {...props} />} />}
-                  {boards && pins && <Route exact path="/" render={props => <HomePage />} />}
+                  {users && boards && pins && <Route path="/user/id=:userId/board/id=:boardId/pin/id=:pinId" render={props => <PinPage data={pins} {...props} />} />}
+                  {users && boards && pins && <Route path="/user/id=:userId/boards" render={props => <User data={boards} {...props} />} />}
+                  {users && boards && pins && <Route exact path="/user/id=:userId/board/id=:boardId" render={props => <BoardPin data={pins} {...props} />} />}
+                  {users && boards && pins && <Route exact path="/" render={props => <HomePage />} />}
               </Switch>
             </div>
         </div>

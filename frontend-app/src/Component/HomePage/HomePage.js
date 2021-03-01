@@ -11,9 +11,6 @@ const HomePage = props => {
         <div>
             <Register />
             <Login data={data} {...props} />
-            <div>
-
-            </div>
         </div>
     );
 

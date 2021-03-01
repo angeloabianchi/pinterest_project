@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './CreatePin.css';
-import add_circle from './Icons/add_circle.svg';
 import Api from "../../api";
 import {Button, Dialog, TextField, MenuItem} from "@material-ui/core";
 import {useAppContext} from "../../Context";
@@ -11,28 +10,13 @@ const CreatePin = props => {
     const {showModal, setShowModal} = useAppContext();    /* para mostrar ou esconder o modal (pop-up) */
     const [pin, setPin] = useState({title: '', description: '', imgUrl: '', boardId: params.boardId, userId: params.userId});
     const [formError, setFormError] = useState({title: false, description: false, imgUrl: false});
-    const [boards, setBoards] = useState('');
-    const [users, setUsers] = useState('');
-    const [isFetching, setIsFetching] = useState(true);     /* me serve para ver quando estou carregando dados */
+   /* const [isFetching, setIsFetching] = useState(true);      me serve para ver quando estou carregando dados */
 
-    const fetchBoards = () => {             /* cojer las boards */
-        Api.getBoards(boards).then(res => {
-            setBoards(res);
-            setIsFetching(false);
-            })
-    }
 
-    const fetchUsers = () => {              /* cojer los users */
-        Api.getUsers(users).then(res => {
-            setUsers(res);
-            setIsFetching(false);
-        })
-    }
+    /* if(isFetching) {
+                                nesse if tenho que fazer com que mostre os pins novos quando feito o upload sem que seja necessario recarregar a página
 
-    if(isFetching) {        /* se está fetching, me hace el fetchBoards y fetchUsers  */
-        fetchBoards();      /* nesse if tenho que fazer com que mostre os pins novos quando feito o upload sem que seja necessario recarregar a página */
-        fetchUsers();
-    }
+    } */
 
     const formHasError = (errors) => {
         let error = false;
@@ -47,7 +31,7 @@ const CreatePin = props => {
     const sendData = () => {
         const errors = {};
         Object.keys(pin).forEach(key => {
-            errors[key] = pin[key] === '';  /* <-- caso haja erros, mudar o valor da 'key' (name, email ou password) para true */
+            errors[key] = pin[key] === '';  /* <-- caso haja erros, mudar o valor da 'key' (title, description ou category) para true */
         });                   /* <--- esta función 'Object.keys(data)' me devolve somente as keys de uma array, que no caso é o 'user'. forEach -> para cada 'key' */
 
         if (!formHasError(errors)) {
@@ -85,7 +69,7 @@ const CreatePin = props => {
             <Dialog open={showModal} onClose={handleClickClose} >
                 <form className="Form">
                     <div className="Title">Crear Pin</div>
-                    {Object.keys(pin).filter(obj => obj === 'title' || obj === 'description' || obj === 'imgUrl').map(key => (
+                    {Object.keys(pin).filter(obj => obj !== 'boardId' && obj !== 'userId').map(key => (
                         <TextField
                             required
                             helperText={formError[key] ? "A pin needs a " + capitalize(key) : ''}

@@ -1,7 +1,6 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import "./PinPage.css";
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import arrowLeft from './Icons/arrowLeft.svg';
 import threeDots from './Icons/threeDots.svg';
 import shareIcon from './Icons/shareIcon.svg';

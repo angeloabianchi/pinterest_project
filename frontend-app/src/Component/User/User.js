@@ -3,6 +3,7 @@ import './User.css';
 import {Link, useParams} from 'react-router-dom';
 import Api from '../../api';
 import {Button} from "@material-ui/core";
+import CreateBoard from "../CreateBoard/CreateBoard";
 
 const User = props => {
     const params = useParams();
@@ -25,6 +26,7 @@ const User = props => {
 
     return (
         <div className="users">
+            <CreateBoard />
             <div>
                 {userData && (          /* <--- se userData es true, enseñame un div con el userData.name */
                     <div>Bien venido al proyecto Pinterest, {userData.name}</div>
@@ -44,6 +46,8 @@ const User = props => {
             })}
 
         </div>
+
+
     );
 }
 

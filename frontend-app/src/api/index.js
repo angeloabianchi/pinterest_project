@@ -55,4 +55,8 @@ const createPin = (data) => {
     return fetchResource('pins', {method: 'POST', body: data})
 }
 
-export default {fetchResource, getPins, createUsers, getUser, createPin, getBoards, getUsers};
+const createBoard = (data) => {
+    return fetchResource('boards', {method: 'POST', body: data})
+}
+
+export default {fetchResource, getPins, createUsers, getUser, createPin, getBoards, getUsers, createBoard};
