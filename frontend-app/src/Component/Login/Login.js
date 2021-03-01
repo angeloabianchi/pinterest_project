@@ -1,14 +1,13 @@
 import React, {useState} from "react";
 import './Login.css';
 import Api from "../../api";
-import { Button, TextField, Dialog} from "@material-ui/core";
+import {Button, TextField, Dialog, debounce} from "@material-ui/core";
 import {Link} from "react-router-dom";
 
 const Login = () => {
     const [showModal, setShowModal] = useState(false);
     const [user, setUser] = useState({email: '', password: ''});
     const [formError, setFormError] = useState({email: false, password: false});
-    const [loginUser, setLoginUser] = useState({id: '', email: '', password: ''});
 
     const formHasError = (errors) => {
         let error = false;
@@ -29,7 +28,11 @@ const Login = () => {
         if (!formHasError(errors)) {
             Api.getUsers(user).then(res => {
                 const findUser = res.filter(res => res.email === user.email);
-                setLoginUser({id: findUser[0].id, email: findUser[0].email, password: findUser[0].password});
+                if(findUser[0] && findUser[0].password === user.password) {
+                    window.location.href = `/user/id=${findUser[0].id}/boards`
+                }else{
+                    alert('usuario o contraseña incorrectos');
+                }
                 setShowModal(false);
                 setUser({email: '', password: ''})
             })
@@ -73,15 +76,8 @@ const Login = () => {
                             onChange={e => handleChange(key, e.target.value)} />
                     ))}
                     <div className="SendCancel">
-                        <Button variant='contained' color='primary' size='large' onClick={sendData}>Verificar Cuenta</Button>
-
+                        <Button variant='contained' color='primary' size='large' onClick={sendData}> Entrar </Button>
                         <Button variant="contained" color="Default" size="large" onClick={handleClickClose}>Cancelar</Button>
-                    </div>
-                    <div>
-                        <Button variant='contained' color='primary' size='large'>
-                            <Link to={`/user/id=${loginUser.id}`}>Entrar en mi cuenta</Link>
-                        </Button>
-
                     </div>
                 </form>
             </Dialog>

@@ -8,18 +8,15 @@ import shareIcon from './Icons/shareIcon.svg';
 
 const PinPage = props => {
     const { data } = props;
-
-    let { params } = useParams();
-
-    const pin = data.filter(pin => pin.id == params);
+    let params = useParams();
+    const pin = data.filter(pin => pin.id == params.pinId);
 
     return(
-
         <div className="Pin-Content">
             <div className="Pin-Board">
               <div className="Back-Arrow">
                 <div className="Icons">
-                  <Link to="/pins"><img src={arrowLeft} /></Link>
+                  <Link to={`/user/id=${params.userId}/board/id=${params.boardId}`}><img src={arrowLeft} /></Link>
                 </div>
 
                 <div className="ParaTi"><h3>Para Ti</h3></div>

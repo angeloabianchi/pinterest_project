@@ -4,11 +4,13 @@ import add_circle from './Icons/add_circle.svg';
 import Api from "../../api";
 import {Button, Dialog, TextField, MenuItem} from "@material-ui/core";
 import {useAppContext} from "../../Context";
+import {useParams} from 'react-router-dom';
 
 const CreatePin = props => {
+    const params = useParams();
     const {showModal, setShowModal} = useAppContext();    /* para mostrar ou esconder o modal (pop-up) */
-    const [pin, setPin] = useState({title: '', description: '', imgUrl: '', boardId: '', userId: ''});
-    const [formError, setFormError] = useState({title: false, description: false, imgUrl: false, boardId: false, userId: false});
+    const [pin, setPin] = useState({title: '', description: '', imgUrl: '', boardId: params.boardId, userId: params.userId});
+    const [formError, setFormError] = useState({title: false, description: false, imgUrl: false});
     const [boards, setBoards] = useState('');
     const [users, setUsers] = useState('');
     const [isFetching, setIsFetching] = useState(true);     /* me serve para ver quando estou carregando dados */
@@ -51,7 +53,7 @@ const CreatePin = props => {
         if (!formHasError(errors)) {
             Api.createPin(pin).then(res => {
                 setShowModal(false);
-                setPin({title: '', description: '', imgUrl: '', boardId: '', userId: ''});
+                setPin({title: '', description: '', imgUrl: ''});
             })
         }else{
             setFormError(errors);
@@ -68,8 +70,8 @@ const CreatePin = props => {
 
     const handleClickClose = () => {
         setShowModal(false);
-        setPin({title: '', description: '', imgUrl: '', boardId: '', userId: ''});
-        setFormError({title: false, description: false, imgUrl: false, boardId: false, userId: false});
+        setPin({title: '', description: '', imgUrl: ''});
+        setFormError({title: false, description: false, imgUrl: false});
     }
 
     const handleChange = (key, newValue) => {
@@ -94,34 +96,6 @@ const CreatePin = props => {
                             variant="outlined"
                             onChange={e => handleChange(key, e.target.value)} />
                     ))}
-                    <TextField
-                        select
-                        label="Board"
-                        value={boards.title}
-                        onChange={e => handleChange(Object.keys(pin)[3], e.target.value)}
-                        helperText="Please select your Board"
-                        variant="outlined"
-                    >
-                        {Object.keys(boards).map((key) => (
-                            <MenuItem key={boards[key].id} value={boards[key].id}>
-                                {boards[key].title}
-                            </MenuItem>
-                        ))}
-                    </TextField>
-                    <TextField
-                        select
-                        label="User"
-                        value={users.title}
-                        onChange={e => handleChange(Object.keys(pin)[4], e.target.value)}
-                        helperText="Please select the User"
-                        variant="outlined"
-                    >
-                        {Object.keys(users).map((key) => (
-                            <MenuItem key={users[key].id} value={users[key].id}>
-                                {users[key].id}
-                            </MenuItem>
-                        ))}
-                    </TextField>
 
                     <div className="SendCancel">
                         <Button variant="contained" color="primary" size="large" onClick={sendData}>Enviar</Button>

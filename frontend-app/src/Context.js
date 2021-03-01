@@ -12,7 +12,7 @@ export const AppContextProvider = ({children}) => {                     /* Pego 
 
     return (
         <AppContext.Provider value={{showModal, setShowModal, isFetching, setIsFetching}}>
-            {children}
+            {children} 
         </AppContext.Provider>                  /* está dando acesso ao componente que está dentro do AppContext.Provider */
         )                                       /* aos valores de showModal e setShowModal */
 }
