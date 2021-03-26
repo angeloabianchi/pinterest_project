@@ -1,0 +1,12 @@
+.initialNavBar {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    direction: rtl;
+    align-items: center;
+}
+
+.initialNavBarIcon{
+    direction: ltr;
+}

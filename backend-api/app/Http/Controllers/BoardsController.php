@@ -15,9 +15,9 @@ class BoardsController extends Controller
         $data = $request->all();                /* <-- guardo los datos del json en una variable $data */
 
         $boardValidator = Validator::make($data, [
-            'title' => ['required', 'string', 'max:255', 'min:4'],
-            'description' => ['required', 'string', 'max:255', 'min:4'],
-            'category' => ['required', 'string', 'max:255', 'min:4'],
+            'title' => ['required', 'string', 'max:255', 'min:3'],
+            'description' => ['required', 'string', 'max:255', 'min:3'],
+            'category' => ['required', 'string', 'max:255', 'min:3'],
             'userId' => ['required'],
         ]);
 

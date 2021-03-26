@@ -4,6 +4,7 @@ import {Link, useParams} from 'react-router-dom';
 import arrowLeft from './Icons/arrowLeft.svg';
 import threeDots from './Icons/threeDots.svg';
 import shareIcon from './Icons/shareIcon.svg';
+import NavBar from "../NavBar/NavBar";
 
 const PinPage = props => {
     const { data } = props;
@@ -12,6 +13,7 @@ const PinPage = props => {
 
     return(
         <div className="Pin-Content">
+            <NavBar />
             <div className="Pin-Board">
               <div className="Back-Arrow">
                 <div className="Icons">

@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import BoardPin from "./Component/BoardPin/BoardPin";
 import PinPage from "./Component/Pin/PinPage";
-import NavBar from "./Component/NavBar/NavBar.js";
 import User from "./Component/User/User.js";
 import Api from "./api";
 import {
@@ -12,7 +11,6 @@ import {
 } from 'react-router-dom';
 import { contextWrapper } from "./Context";
 import HomePage from "./Component/HomePage/HomePage";
-
 
 
 const App = () => {
@@ -37,8 +35,6 @@ const App = () => {
       <Router>
         <div className="App">
             <div className="Content">
-                {users && <NavBar/>}
-
               <Switch>
                   {users && boards && pins && <Route path="/user/id=:userId/board/id=:boardId/pin/id=:pinId" render={props => <PinPage data={pins} {...props} />} />}
                   {users && boards && pins && <Route path="/user/id=:userId/boards" render={props => <User data={boards} {...props} />} />}

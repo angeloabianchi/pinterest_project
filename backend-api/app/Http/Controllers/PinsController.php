@@ -15,8 +15,8 @@ class PinsController extends Controller
         $data = $request->all();                /* <-- guardo los datos del json en una variable $data */
 
         $pinValidator = Validator::make($data, [                    /* <-- validar os dados que querem entrar no backend.  */
-            'title' => ['required', 'string', 'max:255', 'min:4'],            /* <-- nome requerido, tem que ser string e com max 255 caracteres e mínimo de 4  */
-            'description' => ['required', 'string', 'max:255', 'min:4'],
+            'title' => ['required', 'string', 'max:255', 'min:3'],            /* <-- nome requerido, tem que ser string e com max 255 caracteres e mínimo de 4  */
+            'description' => ['required', 'string', 'max:255', 'min:3'],
             'imgUrl' => ['required', 'url'],                         /* <-- imgUrl é requerido e precisa ser uma url  */
             'userId' => ['required'],
             'boardId' => ['required'],

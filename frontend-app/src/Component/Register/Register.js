@@ -55,7 +55,7 @@ const Register = () => {
 
     return (
         <div className="Register">
-            <Button variant="outlined" color="primary" onClick={handleClickOpen}>Crear Cuenta</Button>
+            <Button className="Button" variant="outlined" color="primary" onClick={handleClickOpen}>Criar Cuenta</Button>
             <Dialog open={showModal} onClose={handleClickClose} >
                 <form className="Form">
                     <div className="Title">Registrar</div>
