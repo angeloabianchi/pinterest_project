@@ -2,12 +2,24 @@ import React, { useState } from 'react';
 import './Register.css';
 import Api from "../../api";
 import { Button, TextField, Dialog } from "@material-ui/core";
+import {makeStyles} from "@material-ui/core/styles"
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    color: "black",
+    borderRadius: "20px",
+    backgroundColor: "rgb(205, 0, 0);",
+    border: "solid 1px rgb(255, 4, 4)",
+    fontWeight: "bold",
+  }
+}));
 
 
 const Register = () => {
     const [showModal, setShowModal] = useState(false);
     const [user, setUser] = useState({name: '', email: '', password: ''});
     const [formError, setFormError] = useState({name: false, email: false, password: false})
+    const classes = useStyles();
 
     const formHasError = (errors) => {
         let error = false;
@@ -55,7 +67,7 @@ const Register = () => {
 
     return (
         <div className="Register">
-            <Button className="Button" variant="outlined" color="primary" onClick={handleClickOpen}>Criar Cuenta</Button>
+            <Button className={classes.root} variant="outlined" color="primary" onClick={handleClickOpen}>Criar Conta</Button>
             <Dialog open={showModal} onClose={handleClickClose} >
                 <form className="Form">
                     <div className="Title">Registrar</div>

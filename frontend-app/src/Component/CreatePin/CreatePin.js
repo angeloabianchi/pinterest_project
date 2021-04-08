@@ -4,6 +4,17 @@ import Api from "../../api";
 import {Button, Dialog, TextField, MenuItem} from "@material-ui/core";
 import {useAppContext} from "../../Context";
 import {useParams} from 'react-router-dom';
+import {makeStyles} from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    color: "red",
+    borderRadius: "20px",
+    backgroundColor: "rgba(255, 4, 4, 0.5)",
+    border: "solid 1px rgb(255, 4, 4)",
+    fontWeight: "bold",
+  }
+}));
 
 const CreatePin = props => {
     const params = useParams();
@@ -11,6 +22,7 @@ const CreatePin = props => {
     const [pin, setPin] = useState({title: '', description: '', imgUrl: '', boardId: params.boardId, userId: params.userId});
     const [formError, setFormError] = useState({title: false, description: false, imgUrl: false});
    /* const [isFetching, setIsFetching] = useState(true);      me serve para ver quando estou carregando dados */
+   const classes = useStyles();
 
 
     /* if(isFetching) {
@@ -64,8 +76,8 @@ const CreatePin = props => {
 
 
     return (
-        <div className="Register">
-            <Button variant="outlined" color="primary" onClick={handleClickOpen}>+</Button>
+        <div className="CreatePin">
+            <Button className={classes.root} variant="outlined" color="primary" onClick={handleClickOpen}>+</Button>
             <Dialog open={showModal} onClose={handleClickClose} >
                 <form className="Form">
                     <div className="Title">Crear Pin</div>

@@ -1,10 +1,22 @@
 import React, {useState} from 'react';
 import Api from "../../api";
 import {Button, Dialog, TextField, Textfield} from "@material-ui/core";
+import {makeStyles} from "@material-ui/core/styles";
 import {useAppContext} from "../../Context";
 import {useParams} from "react-router-dom";
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    color: "red",
+    borderRadius: "20px",
+    backgroundColor: "rgba(255, 4, 4, 0.5)",
+    border: "solid 1px rgb(255, 4, 4)",
+    fontWeight: "bold",
+  }
+}));
+
 const CreateBoard = props => {
+    const classes = useStyles();
     const params = useParams();
     const {showModal, setShowModal} = useAppContext();
     const [board, setBoard] = useState({title: '', description: '', category: '', userId: params.userId});
@@ -55,8 +67,8 @@ const CreateBoard = props => {
     }
 
     return(
-        <div className="Register">
-            <Button variant="outlined" color="primary" onClick={handleClickOpen}>+</Button>
+        <div className="CreateBoardButton">
+            <Button className={classes.root} variant="outlined" color="secondary" onClick={handleClickOpen}>+</Button>
             <Dialog open={showModal} onClose={handleClickClose} >
                 <form className="Form">
                     <div className="Title">Crear Board</div>

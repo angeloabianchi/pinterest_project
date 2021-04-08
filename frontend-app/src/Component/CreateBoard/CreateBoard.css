@@ -1,11 +1,6 @@
-.CreatePin {
+.CreateBoardButton {
   text-align: right;
-  margin-right: 35px;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  position: fixed;
-  right: 0;
-  bottom: 0;
+  margin-right: 110px;
 }
 
 .Button {

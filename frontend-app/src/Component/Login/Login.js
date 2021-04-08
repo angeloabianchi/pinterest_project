@@ -2,12 +2,25 @@ import React, {useState} from "react";
 import './Login.css';
 import Api from "../../api";
 import {Button, TextField, Dialog, debounce} from "@material-ui/core";
+import {makeStyles} from "@material-ui/core/styles";
 import {Link} from "react-router-dom";
+
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    color: "black",
+    borderRadius: "20px",
+    backgroundColor: "white",
+    border: "none",
+    fontWeight: "bold",
+  }
+}));
 
 const Login = () => {
     const [showModal, setShowModal] = useState(false);
     const [user, setUser] = useState({email: '', password: ''});
     const [formError, setFormError] = useState({email: false, password: false});
+    const classes = useStyles();
 
     const formHasError = (errors) => {
         let error = false;
@@ -61,7 +74,7 @@ const Login = () => {
 
     return (
         <div className="Register">
-            <Button variant="outlined" color="primary" onClick={handleClickOpen}>Entrar</Button>
+            <Button className={classes.root} variant="outlined" color="primary" onClick={handleClickOpen}>Entrar</Button>
             <Dialog open={showModal} onClose={handleClickClose} >
                 <form className="Form">
                     <div className="Title">Login</div>

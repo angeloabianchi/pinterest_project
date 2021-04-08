@@ -4,6 +4,7 @@ import {Link, useParams} from 'react-router-dom';
 import Api from '../../api';
 import {Button} from "@material-ui/core";
 import CreateBoard from "../CreateBoard/CreateBoard";
+import NavBar from "../NavBar/NavBar";
 
 const User = props => {
     const params = useParams();
@@ -26,26 +27,32 @@ const User = props => {
 
     return (
         <div className="users">
-            <CreateBoard />
-            <div>
-                {userData && (          /* <--- se userData es true, enseñame un div con el userData.name */
-                    <div>Bien venido al proyecto Pinterest, {userData.name}</div>
-                )}
-                {!userData && (         /* <--- se userData es false, enseñame un div con 'no data :(' */
-                    <div>no data :(</div>
-                )}
-            </div>
+          <div><NavBar /></div>
+
+          <div className="welcome">
+              {userData && (          /* <--- se userData es true, enseñame un div con el userData.name */
+                  <div>Bien venido al proyecto Pinterest, {userData.name}</div>
+              )}
+              {!userData && (         /* <--- se userData es false, enseñame un div con 'no data :(' */
+                  <div>no data :(</div>
+              )}
+          </div>
             <Button variant='contained' color='default' size='large' onClick={Logout}>Logout</Button>
 
-            {findBoards.map( board => {
-                return(
-                    <div className="boards">
-                       <Link to={`/user/id=${params.userId}/board/id=${board.id}`}>{board.title}</Link>
-                    </div>
-                )
-            })}
+            <div className="boards">
+              {findBoards.map( board => {
+                  return(
+                      <div className="board">
+                         <Link to={`/user/id=${params.userId}/board/id=${board.id}`} className="linkToBoard">{board.title}</Link>
+                      </div>
+                  )
+              })}
+            </div>
+
+            <div className="CreateBoardButton"><CreateBoard /></div>
 
         </div>
+
 
 
     );

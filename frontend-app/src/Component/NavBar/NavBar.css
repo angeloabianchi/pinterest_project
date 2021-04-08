@@ -6,6 +6,7 @@
   height: 55px;
   position: fixed;
   box-shadow: 0 2px 5px 0 #dddbdb;
+  z-index: 1;
 }
 
 .PinterestIcon {

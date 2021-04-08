@@ -30,6 +30,8 @@ const HomePage = props => {
                 <div className="HomePagePhotos-small"><img src={photo1} className="photo" /></div>
                 <div className="HomePagePhotos-medium"><img src={photo2} className="photo" /></div>
                 <div className="HomePagePhotos-large"><img src={photo3} className="photo" /></div>
+                <div className="HomePagePhotos-small"><img src={photo3} className="photo" /></div>
+                <div className="HomePagePhotos-medium"><img src={photo3} className="photo" /></div>
             </div>
         </div>
     );
